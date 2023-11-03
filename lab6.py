@@ -8,50 +8,40 @@ Created on Tue Oct 31 09:16:20 2023
 
 # if __name__ = '__main__':
 #     main()
-    
-    
-contact_list = ["Ahmed", "001", "Ali", "002", "John", "003"]
 
-def view_contacts():
-    view_list = []
-    for i in range(0, len(view_list), 2):
-        name = view_list[i]
-        number = view_list[i + 1]
-        contact_id = i // 2 + 1
-        contact_info = f"{contact_id} {name} {number}"
-        view_list.append(contact_info)
-    return view_list
+
+contact_list = [
+    {"name": "Ali", "number": "001"},
+    {"name": "Joe", "number": "002"},
+]
+
+
+def view_contacts(contact_list):
+    print("....View Contacts.....")
+    for index, contact in enumerate(contact_list):
+        print(f"{index + 1} {contact['name']} {contact['number']}")
+
 
 def add_contacts():
-    add_list = contact_list
+    global contact_list
     name = input("Enter contact name: ")
     number = input("Enter contact number: ")
-    contact_info = [name, number]
-    add_list.append(contact_info)
+    contact_info = {"name": name, "number": number}
+    contact_list.append(contact_info)
     print(f"{name} - {number} has been added to the contact list")
+
 
 def delete_contact():
     global contact_list  # Access the global contact_list
 
-    contact_id = input("Enter the ID of the contact to delete: ")
+    contact_id = int(input("Enter the ID of the contact to delete: "))
 
-    contact_found = False
-
-    for i in range(0, len(contact_list), 3):
-        name = contact_list[i]
-        number = contact_list[i + 1]
-        current_id = contact_list[i + 2]
-
-        if current_id == contact_id:
-            contact_found = True
-            contact_list.pop(i)      
-            contact_list.pop(i)      
-            contact_list.pop(i)      
-            print(f"Contact with ID {contact_id} - {name} - {number} has been deleted")
-            break
-
-    if not contact_found:
-        print(f"No contact found with ID {contact_id}")
+    for index, contact in enumerate(contact_list):
+        try:
+            contact_list.pop(index)
+            print(f"Contact with ID - {contact_id} - {contact['name']} - {contact['number']} has been deleted")
+        except Exception as error:
+            print(error)
 
 # Main program
 while True:
@@ -63,9 +53,7 @@ while True:
     choice = input("Select an option (1/2/3/4): ")
 
     if choice == "1":
-        contacts = view_contacts()
-        for contact in contacts:
-            print(contact)
+        contacts = view_contacts(contact_list)
     elif choice == "2":
         add_contacts()
     elif choice == "3":
@@ -74,6 +62,3 @@ while True:
         break
     else:
         print("Invalid option. Please choose 1, 2, 3, or 4.")
-
-
-
