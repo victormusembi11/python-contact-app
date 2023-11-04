@@ -1,4 +1,6 @@
-# python-demo
+# python-contacts
+
+A simple python app to manage contacts
 
 ## Install mysql
 
