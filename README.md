@@ -16,16 +16,20 @@ brew install mysql
 
 ## Run DB Migration
 
-Login to mysql
+### Login to mysql
+
+By default, the root password is empty so if prompted for a password, just press enter
 
 ```bash
 mysql -u root -p
 ```
 
-Source the migration file
+### Source the migration file
+
+In the mysql shell, run the following command and exit
 
 ```bash
-source app/schema.sql
+mysql> source app/schema.sql
 ```
 
 ## Create a virtual environment
