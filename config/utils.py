@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_env_variable(var_name):
+def get_env_variable(var_name) -> str or None:
     """Get an environment variable or raise an exception."""
     try:
         return os.environ[var_name]
@@ -16,6 +16,6 @@ def get_env_variable(var_name):
         raise Exception(error_msg)
 
 
-def get_bool_env(env_var):
+def get_bool_env(env_var) -> bool:
     """Parse 'boolean' environment variable strings."""
     return os.getenv(env_var, "False") == "True"

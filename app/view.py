@@ -3,7 +3,7 @@ from app.models import Contact
 from config.db_conn import cnx
 
 
-def create_contact():
+def create_contact() -> None:
     """Create a contact."""
     name = input("Enter contact name: ")
     number = input("Enter contact number: ")
@@ -11,7 +11,7 @@ def create_contact():
     contact.add_contact(name, number)
 
 
-def view_contacts():
+def view_contacts() -> None:
     """View all contacts.""" ""
     contact = Contact(cnx)
     result = contact.get_contacts()
@@ -19,7 +19,7 @@ def view_contacts():
         print(f"{contact[0]} {contact[1]} {contact[2]}")
 
 
-def delete_contact():
+def delete_contact() -> None:
     """Delete a contact."""
     contact_id = int(input("Enter the ID of the contact to delete: "))
     contact = Contact(cnx)
