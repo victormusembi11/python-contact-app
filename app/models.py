@@ -9,3 +9,9 @@ class Contact:
         self.cursor.execute(query, values)
         self.cnx.commit()
         print(f"{name} - {phone} has been added to the contact list")
+
+    def get_contacts(self):
+        query = "SELECT * FROM Contacts"
+        self.cursor.execute(query)
+        result = self.cursor.fetchall()
+        return result
