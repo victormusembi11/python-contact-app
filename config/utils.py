@@ -1,4 +1,6 @@
+"""Utilities for the config package."""
 import os
+
 from dotenv import load_dotenv
 
 # Load environment variables

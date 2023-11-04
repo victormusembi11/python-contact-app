@@ -1,4 +1,5 @@
-from app.view import create_contact, view_contacts, delete_contact
+"""Main file for the application."""
+from app.view import create_contact, delete_contact, view_contacts
 
 while True:
     print("1. View Contacts")

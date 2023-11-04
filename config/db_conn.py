@@ -1,6 +1,7 @@
+"""Database connection module."""
 import mysql.connector
 
-from config.utils import get_env_variable, get_bool_env
+from config.utils import get_bool_env, get_env_variable
 
 config = {
     "user": get_env_variable("DB_USER"),

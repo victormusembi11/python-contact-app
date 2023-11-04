@@ -1,8 +1,10 @@
-from config.db_conn import cnx
+"""All the functions that are used to interact with the user are defined here."""
 from app.models import Contact
+from config.db_conn import cnx
 
 
 def create_contact():
+    """Create a contact."""
     name = input("Enter contact name: ")
     number = input("Enter contact number: ")
     contact = Contact(cnx)
@@ -10,6 +12,7 @@ def create_contact():
 
 
 def view_contacts():
+    """View all contacts.""" ""
     contact = Contact(cnx)
     result = contact.get_contacts()
     for contact in result:
@@ -17,6 +20,7 @@ def view_contacts():
 
 
 def delete_contact():
+    """Delete a contact."""
     contact_id = int(input("Enter the ID of the contact to delete: "))
     contact = Contact(cnx)
     contact.delete_contact(contact_id)
