@@ -15,3 +15,10 @@ class Contact:
         self.cursor.execute(query)
         result = self.cursor.fetchall()
         return result
+
+    def delete_contact(self, contact_id: int):
+        query = "DELETE FROM Contacts WHERE id = %s"
+        values = (contact_id,)
+        self.cursor.execute(query, values)
+        self.cnx.commit()
+        print(f"Contact id {contact_id} has been deleted")

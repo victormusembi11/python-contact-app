@@ -14,3 +14,9 @@ def view_contacts():
     result = contact.get_contacts()
     for contact in result:
         print(f"{contact[0]} {contact[1]} {contact[2]}")
+
+
+def delete_contact():
+    contact_id = int(input("Enter the ID of the contact to delete: "))
+    contact = Contact(cnx)
+    contact.delete_contact(contact_id)
